@@ -1,4 +1,4 @@
-// Interaces and Methods
+// Interaces and Classes
 function greet(person) {
     console.log('Hello, ' + person.firstName);
 }
@@ -26,5 +26,11 @@ var Person = /** @class */ (function () {
 }());
 var myPerson = new Person();
 myPerson.firstName = 'Maxmilian';
+myPerson.lastName = 'Anything';
 greet(myPerson);
-myPerson.greet('Anything');
+myPerson.greet(myPerson.lastName);
+var myDoubleFunction;
+myDoubleFunction = function (value1, value2) {
+    return (value1 + value2) * 2;
+};
+console.log(myDoubleFunction);
