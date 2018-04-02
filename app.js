@@ -27,3 +27,16 @@ plant.species = "AB";
 console.log(plant.species);
 plant.species = "Green Plant";
 console.log(plant.species);
+console.log('--------------------------------------------------');
+// Static Properties & Methods
+var Helpers = /** @class */ (function () {
+    function Helpers() {
+    }
+    Helpers.calcCircumference = function (diameter) {
+        return this.PI * diameter;
+    };
+    Helpers.PI = 3.14;
+    return Helpers;
+}());
+console.log(2 * Helpers.PI);
+console.log(Helpers.calcCircumference(8));
