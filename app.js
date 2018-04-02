@@ -1,36 +1,16 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-// Abstract Classes
-var Project = /** @class */ (function () {
-    function Project() {
-        this.projectName = "Default";
-        this.budget = 1000;
+// private constructors
+var OnlyOne = /** @class */ (function () {
+    function OnlyOne(name) {
+        this.name = name;
     }
-    Project.prototype.calcBuget = function () {
-        return this.budget * 2;
+    OnlyOne.getInstance = function () {
+        if (!OnlyOne.instance) {
+            OnlyOne.instance = new OnlyOne('The Only One');
+        }
+        return OnlyOne.instance;
     };
-    return Project;
+    return OnlyOne;
 }());
-var ITProject = /** @class */ (function (_super) {
-    __extends(ITProject, _super);
-    function ITProject() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    ITProject.prototype.chagneName = function (name) {
-        this.projectName = name;
-    };
-    return ITProject;
-}(Project));
-var newProject = new ITProject();
-console.log(newProject);
-newProject.chagneName("Super IT Project");
-console.log(newProject);
+var wrong = new OnlyOne('The Only One');
+var right = OnlyOne.getInstance();

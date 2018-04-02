@@ -1,22 +1,16 @@
-// Abstract Classes
-abstract class Project {
-	projectName: string = "Default";
-	budget: number = 1000;
+// private constructors & singleton
+class OnlyOne {
+	private static instance: OnlyOne;
 
-	abstract chagneName(name: string): void;
+	private constructor(public name: string) {}
 
-	calcBuget() {
-		return this.budget * 2;
+	static getInstance() {
+		if (!OnlyOne.instance) {
+			OnlyOne.instance = new OnlyOne('The Only One');
+		}
+		return OnlyOne.instance;
 	}
 }
 
-class ITProject extends Project{
-	chagneName(name: string): void {
-		this.projectName = name;
-	}
-}
-
-const newProject = new ITProject();
-console.log(newProject);
-newProject.chagneName("Super IT Project");
-console.log(newProject);
+let wrong = new OnlyOne('The Only One');
+let right = OnlyOne.getInstance();
