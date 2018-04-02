@@ -1,19 +1,6 @@
-var MyMath;
-(function (MyMath) {
-    function calculateRectangle(width, length) {
-        return width * length;
-    }
-    MyMath.calculateRectangle = calculateRectangle;
-})(MyMath || (MyMath = {}));
-var MyMath;
-(function (MyMath) {
-    function calculateCircumference(diameter) {
-        return diameter * PI;
-    }
-    MyMath.calculateCircumference = calculateCircumference;
-})(MyMath || (MyMath = {}));
-/// <reference path="circleMath.ts" />
-/// <reference path="rectangleMath.ts" />
-var PI = 2.99;
-console.log(MyMath.calculateRectangle(10, 20));
-console.log(MyMath.calculateCircumference(3));
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var circle_1 = require("./math/circle");
+console.log(circle_1.PI);
+console.log(circle_1.calcualteCirumcumference(10));
+console.log();
