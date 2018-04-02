@@ -1,9 +1,22 @@
-// Static Properties & Methods
-class Helpers {
-	static PI: number = 3.14;
-	static calcCircumference(diameter: number): number {
-		return this.PI * diameter;
+// Abstract Classes
+abstract class Project {
+	projectName: string = "Default";
+	budget: number = 1000;
+
+	abstract chagneName(name: string): void;
+
+	calcBuget() {
+		return this.budget * 2;
 	}
 }
-console.log(2 * Helpers.PI);
-console.log(Helpers.calcCircumference(8));
+
+class ITProject extends Project{
+	chagneName(name: string): void {
+		this.projectName = name;
+	}
+}
+
+const newProject = new ITProject();
+console.log(newProject);
+newProject.chagneName("Super IT Project");
+console.log(newProject);
