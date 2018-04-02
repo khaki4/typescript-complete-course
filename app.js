@@ -1,6 +1,30 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var circle_1 = require("./math/circle");
-console.log(circle_1.PI);
-console.log(circle_1.calcualteCirumcumference(10));
-console.log();
+// Interaces and Methods
+function greet(person) {
+    console.log('Hello, ' + person.firstName);
+}
+function changeName(person) {
+    person.firstName = 'Anna';
+}
+var person = {
+    firstName: 'Max',
+    hobbies: ['Cooking', 'Sports'],
+    greet: function (lastName) {
+        console.log('hi, I am' + this.firstName + ' ' + lastName);
+    }
+};
+// greet({firstName: 'max', age: 27});
+changeName(person);
+greet(person);
+person.greet('Anything');
+var Person = /** @class */ (function () {
+    function Person() {
+    }
+    Person.prototype.greet = function (lastName) {
+        console.log('hi, I am' + this.firstName + ' ' + lastName);
+    };
+    return Person;
+}());
+var myPerson = new Person();
+myPerson.firstName = 'Maxmilian';
+greet(myPerson);
+myPerson.greet('Anything');
