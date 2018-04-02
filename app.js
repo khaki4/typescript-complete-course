@@ -1,5 +1,5 @@
 "use strict";
-// private constructors
+// private constructors & singleton
 var OnlyOne = /** @class */ (function () {
     function OnlyOne(name) {
         this.name = name;
@@ -14,3 +14,5 @@ var OnlyOne = /** @class */ (function () {
 }());
 var wrong = new OnlyOne('The Only One');
 var right = OnlyOne.getInstance();
+console.log(right.name);
+right.name = 'Something else';
