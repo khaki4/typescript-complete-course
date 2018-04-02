@@ -1,18 +1,16 @@
 "use strict";
-// private constructors & singleton
-var OnlyOne = /** @class */ (function () {
-    function OnlyOne(name) {
-        this.name = name;
+var MyMath;
+(function (MyMath) {
+    var PI = 3.14;
+    function calculateCircumference(diameter) {
+        return diameter * PI;
     }
-    OnlyOne.getInstance = function () {
-        if (!OnlyOne.instance) {
-            OnlyOne.instance = new OnlyOne('The Only One');
-        }
-        return OnlyOne.instance;
-    };
-    return OnlyOne;
-}());
-var wrong = new OnlyOne('The Only One');
-var right = OnlyOne.getInstance();
-console.log(right.name);
-right.name = 'Something else';
+    MyMath.calculateCircumference = calculateCircumference;
+    function calculateRectangle(width, length) {
+        return width * length;
+    }
+    MyMath.calculateRectangle = calculateRectangle;
+})(MyMath || (MyMath = {}));
+var PI = 2.99;
+console.log(MyMath.calculateRectangle(10, 20));
+console.log(MyMath.calculateCircumference(3));

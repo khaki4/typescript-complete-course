@@ -1,21 +1,16 @@
-// readonly properties with TypeScript 2.0
-class OnlyOne {
-	private static instance: OnlyOne;
-	public readonly name: string;
+namespace MyMath {
+	const PI = 3.14;
 
-	private constructor(name: string) {
-		this.name = name;
+	export function calculateCircumference(diameter: number) {
+		return diameter * PI;
 	}
 
-	static getInstance() {
-		if (!OnlyOne.instance) {
-			OnlyOne.instance = new OnlyOne('The Only One');
-		}
-		return OnlyOne.instance;
+	export function calculateRectangle(width: number, length: number) {
+		return width * length;
 	}
 }
 
-let wrong = new OnlyOne('The Only One');
-let right = OnlyOne.getInstance();
-console.log(right.name);
-right.name = 'Something else';
+const PI = 2.99;
+
+console.log(MyMath.calculateRectangle(10, 20));
+console.log(MyMath.calculateCircumference(3));
