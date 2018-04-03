@@ -33,6 +33,6 @@ var SimpleMath = /** @class */ (function () {
     return SimpleMath;
 }());
 var simpleMath = new SimpleMath();
-simpleMath.baseValue = true;
-simpleMath.multiplyValue = false;
+simpleMath.baseValue = '10';
+simpleMath.multiplyValue = 20;
 console.log(simpleMath.calculate());
