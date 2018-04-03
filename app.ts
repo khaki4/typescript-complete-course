@@ -13,3 +13,7 @@ function betterEcho<T>(data: T) {
 console.log(betterEcho("max").length);
 console.log(betterEcho<number>(27));
 console.log(betterEcho({name: "max", age: 27}));
+
+// Built-in Gererics
+const testResults: Array<number> = [1.94, 2.33];
+testResults.push(-2.99);
