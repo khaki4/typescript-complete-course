@@ -20,3 +20,6 @@ function pritAll(args) {
     args.forEach((function (element) { return console.log(element); }));
 }
 pritAll(['Apple', 'Banana']);
+// Gerneric Types
+var echo2 = betterEcho;
+console.log(echo2('Somthing'));

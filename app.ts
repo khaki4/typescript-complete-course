@@ -23,3 +23,8 @@ function pritAll<T>(args: T[]) {
     args.forEach(((element) => console.log(element)));
 }
 pritAll<string>(['Apple', 'Banana'])
+
+// Gerneric Types
+const echo2: <T>(data: T) => T = betterEcho;
+
+console.log(echo2<string>('Somthing'));
