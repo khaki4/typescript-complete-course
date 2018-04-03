@@ -15,3 +15,8 @@ console.log(betterEcho({ name: "max", age: 27 }));
 // Built-in Gererics
 var testResults = [1.94, 2.33];
 testResults.push(-2.99);
+// Arrarys
+function pritAll(args) {
+    args.forEach((function (element) { return console.log(element); }));
+}
+pritAll(['Apple', 'Banana']);

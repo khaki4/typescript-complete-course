@@ -17,3 +17,9 @@ console.log(betterEcho({name: "max", age: 27}));
 // Built-in Gererics
 const testResults: Array<number> = [1.94, 2.33];
 testResults.push(-2.99);
+
+// Arrarys
+function pritAll<T>(args: T[]) {
+    args.forEach(((element) => console.log(element)));
+}
+pritAll<string>(['Apple', 'Banana'])
