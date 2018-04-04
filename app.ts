@@ -1,44 +1,60 @@
-// Simple Gerneric
-function echo(data: any) {
-    return data;
+function logged(constructorFn: Function) {
+    console.log(constructorFn);
 }
-console.log(echo("max").length);
-console.log(echo(27));
-console.log(echo({name: "max", age: 27}));
 
-// Better Generic
-function betterEcho<T>(data: T) {
-    return data;
-}
-console.log(betterEcho("max").length);
-console.log(betterEcho<number>(27));
-console.log(betterEcho({name: "max", age: 27}));
-
-// Built-in Gererics
-const testResults: Array<number> = [1.94, 2.33];
-testResults.push(-2.99);
-
-// Arrarys
-function pritAll<T>(args: T[]) {
-    args.forEach(((element) => console.log(element)));
-}
-pritAll<string>(['Apple', 'Banana'])
-
-// Gerneric Types
-const echo2: <T>(data: T) => T = betterEcho;
-
-console.log(echo2<string>('Somthing'));
-
-// Generic Class
-class SimpleMath<T extends number | string, U extends number | string> {
-    baseValue: T;
-    multiplyValue: U;
-    calculate(): number {
-        return +this.baseValue * +this.multiplyValue;
+@logged
+class Person {
+    constructor() {
+        console.log('Hi');
     }
 }
 
-const simpleMath = new SimpleMath<string, number>();
-simpleMath.baseValue = '10';
-simpleMath.multiplyValue = 20;
-console.log(simpleMath.calculate());
+// Factory
+function logging(value: boolean) {
+    return value ? logged : null;
+}
+
+@logging(true)
+class  Car {
+
+}
+
+// Advanced
+function printable(constructorFn: Function) {
+    constructorFn.prototype.print = function () {
+        console.log(this);
+    }
+}
+
+@logging(true)
+@printable
+class Plant {
+    name = 'Green Plant';
+}
+const plant = new Plant();
+(<any>plant).print();
+
+// Method Decorator
+function editable(value: boolean) {
+    return function(target: any, propName: string, descriptor: PropertyDecorator) {
+        descriptor.writable = value;
+    }
+}
+
+class Project {
+    projectName: string;
+    constructor(name: string) {
+        this.projectName = name;
+    }
+    @editable(false)
+    calBuget() {
+        console.log(1000);
+    }
+}
+
+const project = new Project("Super Project");
+project.calBuget();
+project.calBuget = function () {
+    console.log(2000);
+};
+project.calBuget();
